@@ -1,0 +1,295 @@
+*{
+    margin:0;
+    box-sizing: border-box;
+}
+
+
+body{
+    display: flex;
+    flex-direction:column;
+    justify-content:space-evenly;
+    min-height: 100vh;
+    width: 100%;
+    /* overflow-x: hidden; */
+}
+
+video{
+    position:fixed;
+    z-index: -100;
+    min-height: 100%;
+    max-width: 100%;
+    /* left:10%; */
+    /* width:900px; */
+    transition: all 0.8s ease;
+}
+
+
+.header{
+    background-color: rgb(87%, 87%, 87%, 0.1);
+    text-align: center;
+    margin-bottom: 60px;
+    transition: all .5s ease-out;
+}
+
+.header:hover{
+    background-color: rgb(87%, 87%, 87%, 0.5);
+}
+
+.header h1{
+        text-transform:capitalize;
+        font-size:32px;
+        font-family:'Verdana';
+        padding:15px;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom:60px;
+ 
+}
+
+.left_side{
+    /* background-color: red; */
+    text-align: center;
+    height:250px;
+    width:200px;
+}
+
+article{
+    background-color:rgba(0, 0, 0, 0.2);
+    padding:25px;
+}
+
+form  {
+    color:white;
+    display:flex;
+    flex-direction: column;
+    justify-content:space-around;
+}
+
+form label{
+    margin-bottom: 15px;
+}
+
+form input{
+    margin-top:15px;
+}
+
+.wrapper_input{
+    display: inline-block;
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* justify-content: space-between; */
+    text-align: center;
+}
+
+.wrapper_input label{
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 14px;
+    transition: all .5s ease;
+}
+
+.wrapper_input label:hover{
+    color:whitesmoke;
+    text-shadow: 5px 5px 5px rgba(161, 147, 27, 0.8);
+}
+
+
+#road_code{
+    width:100px;
+    color:black;
+    outline: none;
+    margin-right: 15px;
+    padding:2px;
+    border: 0;
+    box-shadow:0 0 15px 4px rgba(188, 185, 2, 0.1);
+    border-radius:10px;
+    transition: all .5s ease;
+    text-align: center;
+ 
+}
+
+#road_code:hover{
+    box-shadow:0 0 15px 4px rgba(188, 185, 2, 0.3);
+    border-radius:2px;
+}
+
+#region_code{
+    width:100px;
+    color:black;
+    outline: none;
+
+    padding:2px;
+    border: 0;
+    box-shadow:0 0 15px 4px rgba(188, 185, 2, 0.1);
+    border-radius:10px;
+    transition: all .5s ease;
+    text-align: center;
+}
+
+#region_code:hover{
+    box-shadow:0 0 15px 4px rgba(188, 185, 2, 0.3);
+    border-radius:2px;
+}
+
+#selec{
+    width:100px;
+    color:black;
+    outline: none;
+    margin-right: 35px;
+
+    padding:2px;
+    border: 0;
+    box-shadow:0 0 15px 4px rgba(188, 185, 2, 0.1);
+    border-radius:10px;
+    transition: all .5s ease;
+    text-align: center;
+}
+
+#selec:hover{
+    box-shadow:0 0 15px 4px rgba(188, 185, 2, 0.3);
+    border-radius:2px; 
+}
+
+#kilometr{
+    width:100px;
+    color:black;
+    outline: none;
+
+    padding:2px;
+    border: 0;
+    box-shadow:0 0 15px 4px rgba(188, 185, 2, 0.1);
+    border-radius:10px;
+    transition: all .5s ease;
+    text-align: center;
+}
+
+#kilometr:hover{
+    box-shadow:0 0 15px 4px rgba(188, 185, 2, 0.3);
+    border-radius:2px; 
+}
+
+#station_start{
+    outline:none;
+    color:black;
+    margin-right:5px;
+
+    padding:2px;
+    border: 0;
+    box-shadow:0 0 15px 4px rgba(188, 185, 2, 0.1);
+    border-radius:10px;
+    transition: all .5s ease;
+    text-align: center;
+}
+
+#station_start:hover{
+    box-shadow:0 0 15px 4px rgba(188, 185, 2, 0.3);
+    border-radius:2px; 
+}
+
+#station_finish{
+    outline:none;
+    color:black;
+    
+    padding:2px;
+    border: 0;
+    box-shadow:0 0 15px 4px rgba(188, 185, 2, 0.1);
+    border-radius:10px;
+    transition: all .5s ease;
+    text-align: center;
+}
+
+#station_finish:hover{
+    box-shadow:0 0 15px 4px rgba(188, 185, 2, 0.3);
+    border-radius:2px; 
+}
+
+.nb{
+    white-space: nowrap;
+}
+
+#nb_type{
+    outline:none;
+    color:black;
+    width:100px;
+    padding:2px;
+    border: 0;
+    box-shadow:0 0 15px 4px rgba(188, 185, 2, 0.1);
+    border-radius:10px;
+    transition: all .5s ease;
+    text-align: center;
+}
+
+#nb_type:hover{
+    box-shadow:0 0 15px 4px rgba(188, 185, 2, 0.3);
+    border-radius:2px; 
+}
+
+.floating-button {
+    width: 140px;
+    height: 45px;
+    /* line-height: 45px; */
+    border-radius: 45px;
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 14px;
+    text-transform:capitalize;
+    text-align: center;
+    letter-spacing: 1px;
+    font-weight: 600;
+    color: #524f4e;
+    background: white;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+    transition: .3s;
+    margin:0 auto;
+    margin-top:25px;
+}
+
+.floating-button:hover {
+    background: #2EE59D;
+    box-shadow: 0 15px 20px rgba(46, 229, 157, .4);
+    color: white;
+    transform: translateY(7px);
+}
+
+
+
+
+
+
+.right_side{
+    /* background-color: gray; */
+    text-align: center;
+    height:250px;
+    width:200px;
+}
+
+footer{
+    background-color: black;
+    text-align: center;
+    color:white;
+    font-family: 'Radio Canada', sans-serif;
+    font-size: 20px;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    margin-top: auto;
+}
+
+.footer_text{
+    margin-top: 1.8%;
+}
+
+.footer_icon{
+    width:50px;
+    margin-right:15px;
+}
+
+.footer_icon img{
+    width: 100%;
+    height: 100%;
+    border-radius:100px;
+}
+

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/geo.css">
+    <link rel="shortcut icon" href="./icons/лого.png" type="image/x-icon">
+    <title>MWS «Railway Master»</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,500;0,600;1,100;1,500&family=Radio+Canada:wght@500&display=swap" rel="stylesheet">
+
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script>
+   
+
+        jQuery(document).ready(function(){
+         $("h1").mousemove(function(e){
+         var rXP = (e.pageX - this.offsetLeft-$(this).width()/1.5);
+         var rYP = (e.pageY - this.offsetTop-$(this).height()/1.5);
+         $("h1").css('text-shadow', +rYP/10+'px '+rXP/80+'px rgba(227,6,19,.8), '+rYP/8+'px '+rXP/60+'px rgba(255,237,0,1), '+rXP/70+'px '+rYP/12+'px rgba(0,159,227,.7)');
+       });
+    });
+    </script>
+     <link
+     rel="stylesheet"
+     href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+     crossorigin=""
+   />
+    <!-- скрипт карты -->
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+ 
+</head>
+<body>
+
+    <div class="header">
+        <div class="log">
+            <h1 class="header_text">Мобильное рабочее место мастера пути</h1>
+        </div>
+    </div>
+    <video autoplay muted loop src="./video/Train going through a tunnel.mp4" alt="first"></video>
+    <div class="wrapper">
+    
+        <div class="left_side">
+          
+        </div>
+            <article>
+                <p id="result" style="font-size:18px; font-family: 'Lobster', cursive;color:white;"><b>Где вы находитесь?</b></p>
+                <div id="map"></div>
+                <!-- кнопка для вызова функции -->
+                <button id="my_position">Мое местоположение</button>
+                 <!-- наш скрипт-модуль -->
+                <script src="./js/script.js" type="module"></script>
+            </article>
+              
+
+                    <div class="right_side">
+
+                    </div>
+
+    </div>
+    <footer>
+        <div class="footer_icon">
+            <img src="./icons/РЖД_маска.jfif" alt="RZHD"  id="photo">
+        </div>
+        <h6 class="footer_text">МРМ 2022</h6>
+    </footer>
+   
+    <script>
+        var link=document.getElementById('photo');
+        link.addEventListener('click',toogle);    
+
+
+        function toogle(){
+            var video=document.getElementsByTagName('video');
+
+            if(video[0].getAttribute('alt')=="first"){
+                video[0].setAttribute("src","./video/Train leaving a tunnel.mp4");
+                video[0].load();
+                video[0].setAttribute("autoplay","");
+                video[0].setAttribute("alt","second")
+            }else{
+                video[0].setAttribute("src","./video/Train going through a tunnel.mp4");
+                video[0].load();
+                video[0].setAttribute("autoplay","");
+                video[0].setAttribute("alt","first")
+            }
+        }
+
+    </script>
+    
+</body>
+</html>

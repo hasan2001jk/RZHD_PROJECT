@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://JAVA.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" id="WebApp_ID" version="2.4">
+	<display-name>Mobile_Railway_Workspace</display-name>
+	<servlet>
+     <description></description>
+    <display-name>nobeServlet</display-name>
+  	<servlet-name>nobeServlet</servlet-name>
+  	<servlet-class>nobeServlet</servlet-class>
+  	
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>nobeServlet</servlet-name>
+  	<url-pattern>/Test</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+    <description></description>
+    <display-name>EnterServlet</display-name>
+  	<servlet-name>EnterServlet</servlet-name>
+  	<servlet-class>EnterServlet</servlet-class>
+  	
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>EnterServlet</servlet-name>
+  	<url-pattern>/Enter_Servlet</url-pattern>
+  </servlet-mapping>
+
+  
+   <servlet>
+    <description></description>
+    <display-name>ErrorServlet</display-name>
+  	<servlet-name>ErrorServlet</servlet-name>
+  	<servlet-class>ErrorServlet</servlet-class>
+  	
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>ErrorServlet</servlet-name>
+  	<url-pattern>/ErrorServlet</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <description></description>
+    <display-name>SendServlet</display-name>
+  	<servlet-name>SendServlet</servlet-name>
+  	<servlet-class>SendServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>SendServlet</servlet-name>
+  	<url-pattern>/SendServlet</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>Get_Info</servlet-name>
+  	<jsp-file>/index.jsp</jsp-file>
+  </servlet>
+
+   <servlet-mapping>
+	<servlet-name>Get_Info</servlet-name>
+	<url-pattern>/get-info</url-pattern>
+   </servlet-mapping>
+   
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>

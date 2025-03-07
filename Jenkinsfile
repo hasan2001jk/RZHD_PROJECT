@@ -13,7 +13,7 @@ pipeline {
             post {
                 always {
                     // Fixed typo: checkStyle -> checkstyle
-                    recordIssues enabledForFailure: true, tool: checkstyle(pattern: 'Mobile_Railway_Workspace/target/checkstyle-result.xml')
+                    recordIssues enabledForFailure: true, tool: checkStyle(pattern: 'Mobile_Railway_Workspace/target/checkstyle-result.xml')
                 }
             }
         }
@@ -21,11 +21,6 @@ pipeline {
             steps {
                 dir('Mobile_Railway_Workspace') {
                     sh 'mvn test'
-                }
-            }
-            post {
-                always {
-                    junit 'Mobile_Railway_Workspace/target/surefire-reports/*.xml'
                 }
             }
         }

@@ -82,5 +82,29 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+	    <!-- Add Checkstyle Plugin -->
+	    <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-checkstyle-plugin</artifactId>
+		<version>3.3.1</version>
+		<configuration>
+		    <configLocation>google_checks.xml</configLocation> <!-- Less strict rules -->
+		    <failOnViolation>false</failOnViolation> <!-- Don’t fail build -->
+		    <logViolationsToConsole>true</logViolationsToConsole>
+		    <outputFile>${project.build.directory}/checkstyle-result.xml</outputFile>
+		    <outputFileFormat>xml</outputFileFormat>
+		</configuration>
+		<executions>
+		    <execution>
+			<id>checkstyle</id>
+			<phase>validate</phase> <!-- Run during validate phase -->
+			<goals>
+			    <goal>check</goal>
+			</goals>
+		    </execution>
+		</executions>
+	    </plugin>
+    </plugins>
   </build>
 </project>

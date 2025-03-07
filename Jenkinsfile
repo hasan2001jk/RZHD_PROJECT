@@ -2,7 +2,6 @@ pipeline {
     agent any
     tools {
         maven 'Maven' // Ensure this matches your Jenkins Maven tool name
-        jdk 'JDK11'   // Use JDK 11 as configured in pom.xml
     }
     stages {
         stage('Code Quality Checks') {

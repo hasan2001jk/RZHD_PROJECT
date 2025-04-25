@@ -13,8 +13,7 @@ pipeline {
             }
             post {
                 always {
-                    // Fixed typo: checkStyle -> checkstyle
-                    recordIssues enabledForFailure: true, tool: checkStyle(pattern: 'Mobile_Railway_Workspace/target/checkstyle-result.xml')
+                    recordIssues tools: [checkStyle(pattern: 'Mobile_Railway_Workspace/target/checkstyle-result.xml')], enabledForFailure: true
                 }
             }
         }

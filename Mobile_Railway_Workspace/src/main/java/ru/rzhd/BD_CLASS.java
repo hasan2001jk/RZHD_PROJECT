@@ -61,7 +61,7 @@ public class BD_CLASS {
 					connection.close();
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					System.err.println("Database error occurred.");
 				}
 		
 		

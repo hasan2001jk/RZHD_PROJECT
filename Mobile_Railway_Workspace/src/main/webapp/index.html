@@ -102,7 +102,7 @@
         	if(login == key && password == key)
         	{
         		
-        	}else if(login !="user" || password !="user"){
+        	}else if(login != key || password != key){
         		alert('Неверный логин или пароль!');
         		event.preventDefault();
         	}

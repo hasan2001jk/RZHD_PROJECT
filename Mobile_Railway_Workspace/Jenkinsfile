@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        PATH = "/opt/maven/bin:$PATH"
+    }
     tools {
         maven 'Maven' // Ensure this matches your Jenkins Maven tool name
     }

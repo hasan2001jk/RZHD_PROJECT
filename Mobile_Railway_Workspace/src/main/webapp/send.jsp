@@ -48,14 +48,14 @@
         <div class="left_side">
           
         </div>
-       
+
             <article>
                 <form action="SendServlet" method="POST">
                   <label for="sel">Выберите участок</label>
                   <select id="sel" name="sel">
                   <c:forEach items="${list}" var="s">
                   	<c:if test="${s.isResultState()==false}">
-                      <option value="${s.getAreaCode()}">${s.getAreaCode()}</option>
+                      <option value="<c:out value='${s.getAreaCode()}'/>"><c:out value='${s.getAreaCode()}'/></option>
                     </c:if>
                   </c:forEach>
                   </select>

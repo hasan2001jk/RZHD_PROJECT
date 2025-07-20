@@ -10,6 +10,8 @@ public class BD_CLASS {
 	private String User;
 	private String Pass;
 	private String DB_URL;
+
+	private static final Logger logger = LoggerFactory.getLogger(BD_CLASS.class);
 	
 	public BD_CLASS(String User,String Pass,String DB_URL){
 		this.Pass=Pass;
@@ -29,14 +31,13 @@ public class BD_CLASS {
 
 	//We're setting data to EKASUI class ↓
 	public void setInfo(List<EKASUI> datas) throws SQLException {
-		System.out.println("Testing connection to Postgresql JDBC");
+		logger.info("Testing connection to Postgresql JDBC");
 		Connection connection = null;
 		
 			try {
 				Class.forName("org.postgresql.Driver");
 			} catch (ClassNotFoundException e) {
-				System.out.println("Postgresql not found");
-				e.printStackTrace();
+				logger.error("Postgresql not found");
 				return;
 			}
 		
@@ -68,14 +69,13 @@ public class BD_CLASS {
 	}
 	
 	public void fillData(String areaCode) {
-		System.out.println("Testing connection to Postgresql JDBC");
+		logger.info("Testing connection to Postgresql JDBC");
 		Connection connection = null;
 		
 			try {
 				Class.forName("org.postgresql.Driver");
 			} catch (ClassNotFoundException e) {
-				System.out.println("Postgresql not found");
-				e.printStackTrace();
+				logger.error("Postgresql not found", e);
 				return;
 			}
 			
@@ -93,20 +93,19 @@ public class BD_CLASS {
 				
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
-				e1.printStackTrace();
+				logger.error("Failed to close database connection.", e);
 			}
 	}
 	
 	
 	public void SendError(String RoadCode,String RegionCode,String sel,String km,String station_start,String station_finish,String nb_type) {
-		System.out.println("Testing connection to Postgresql JDBC");
+		logger.info("Testing connection to Postgresql JDBC");
 		Connection connection = null;
 		
 			try {
 				Class.forName("org.postgresql.Driver");
 			} catch (ClassNotFoundException e) {
-				System.out.println("Postgresql not found");
-				e.printStackTrace();
+				logger.error("Postgresql not found",e);
 				return;
 			}
 			
@@ -133,7 +132,7 @@ public class BD_CLASS {
 				connection.close();
 			}catch (SQLException e1) {
 				// TODO Auto-generated catch block
-				e1.printStackTrace();
+				 logger.error("Failed to close database connection.", e);
 			}
 		
 		

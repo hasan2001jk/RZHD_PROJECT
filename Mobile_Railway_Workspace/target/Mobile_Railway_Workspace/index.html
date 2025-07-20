@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="./icons/лого.png" type="image/x-icon">
+    <title>MWS «Railway Master»</title>
+
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script>
+   
+
+        jQuery(document).ready(function(){
+         $("h1").mousemove(function(e){
+         var rXP = (e.pageX - this.offsetLeft-$(this).width()/1.5);
+         var rYP = (e.pageY - this.offsetTop-$(this).height()/1.5);
+         $("h1").css('text-shadow', +rYP/10+'px '+rXP/80+'px rgba(227,6,19,.8), '+rYP/8+'px '+rXP/60+'px rgba(255,237,0,1), '+rXP/70+'px '+rYP/12+'px rgba(0,159,227,.7)');
+       });
+    });
+    </script>
+
+</head>
+<body>
+
+    <div class="header">
+        <div class="log">
+            <h1 class="header_text">Мобильное рабочее место мастера пути</h1>
+        </div>
+    </div>
+    <video src="./video/Train going through a tunnel.mp4" loop autoplay muted alt="first"></video>
+    <div class="wrapper">
+    
+        <div class="left_side">
+          
+        </div>
+
+                <article>
+                    <form action="EnterServlet" method="GET">
+                        <div class="input_wrapper">
+                            <input type="text" id="login" placeholder="Введите логин">
+                            <input type="password" id="password" placeholder="Введите пароль">
+                            <div class="input_icon" id="icon" onclick="togglePasssword()">
+                                <img src="./icons/eye.png" alt="eye">
+                            </div>
+                        </div>
+                        <button class="custom-btn btn-9" name="button" id="submit" onclick="enter()">Войти</button>
+                    </form>
+                </article>
+
+                    <div class="right_side">
+
+                    </div>
+
+    </div>
+    <footer>
+        <div class="footer_icon">
+            <img src="./icons/РЖД_маска.jfif" alt="RZHD"  id="photo">
+        </div>
+        <h6 class="footer_text">МРМ 2022</h6>
+    </footer>
+    
+    <script>
+        var link=document.getElementById('photo');
+        link.addEventListener('click',toogle);    
+             function togglePasssword(){
+                var input=document.getElementById('password');
+                var icon=document.getElementById('icon');
+
+                if(input.type === "password"){
+                    input.type="text";
+                    icon.classList.add('selected');
+                }else{
+                    input.type="password";
+                    icon.classList.remove('selected');
+                }
+        }
+
+        function toogle(){
+            var video=document.getElementsByTagName('video');
+
+            if(video[0].getAttribute('alt')=="first"){
+                video[0].setAttribute("src","./video/Train leaving a tunnel.mp4");
+                video[0].load();
+                video[0].setAttribute("autoplay","");
+                video[0].setAttribute("alt","second")
+            }else{
+                video[0].setAttribute("src","./video/Train going through a tunnel.mp4");
+                video[0].load();
+                video[0].setAttribute("autoplay","");
+                video[0].setAttribute("alt","first")
+            }
+        }
+		
+        function enter(){
+        	var login = document.getElementById('login').value;
+        	var password = document.getElementById('password').value;
+        	var key="user";
+        	
+        	
+        	if(login == key && password == key)
+        	{
+        		
+        	}else if(login != key || password != key){
+        		alert('Неверный логин или пароль!');
+        		event.preventDefault();
+        	}
+        	
+        	
+        }
+    </script>
+</body>
+</html>

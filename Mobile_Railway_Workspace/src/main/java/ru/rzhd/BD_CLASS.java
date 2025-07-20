@@ -5,6 +5,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+// Import the logger classes
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 public class BD_CLASS {
 	private String User;
@@ -93,7 +97,7 @@ public class BD_CLASS {
 				
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
-				logger.error("Failed to close database connection.", e);
+				logger.error("Failed to close database connection.", e1);
 			}
 	}
 	
@@ -132,7 +136,7 @@ public class BD_CLASS {
 				connection.close();
 			}catch (SQLException e1) {
 				// TODO Auto-generated catch block
-				 logger.error("Failed to close database connection.", e);
+				 logger.error("Failed to close database connection.", e1);
 			}
 		
 		

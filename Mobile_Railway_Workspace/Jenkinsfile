@@ -3,9 +3,6 @@ pipeline {
     tools {
         maven 'Maven' // Ensure this matches your Jenkins Maven tool name
     }
-    environment {
-        PATH = "/opt/maven/apache-maven-3.9.11/bin:$PATH"
-    }
     stages {
         stage('Code Quality Checks') {
             steps {

@@ -1,16 +1,18 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven' // Ensure this matches your Jenkins Maven tool name
+        maven 'Maven'
+    }
+    // Define the Maven settings once for the entire pipeline
+    options {
+        withMaven(mavenSettingsConfig: '3e5dd040-52ae-4a57-8172-28911c31cf60')
     }
     stages {
         stage('Code Quality Checks') {
             steps {
                 dir('Mobile_Railway_Workspace') {
-                    sleep(100)
-                    withMaven(mavenSettingsConfig: '3e5dd040-52ae-4a57-8172-28911c31cf60') {
-                        sh 'mvn -B -ntp checkstyle:check || true' // Continue even if Checkstyle fails
-                    }
+                    // No withMaven block needed here, it's inherited from the top level
+                    sh 'mvn -B -ntp checkstyle:check || true'
                 }
             }
             post {
@@ -22,18 +24,14 @@ pipeline {
         stage('Run Tests') {
             steps {
                 dir('Mobile_Railway_Workspace') {
-                    withMaven(mavenSettingsConfig: '3e5dd040-52ae-4a57-8172-28911c31cf60') {
-                        sh 'mvn -B -ntp test'
-                    }
+                    sh 'mvn -B -ntp test'
                 }
             }
         }
         stage('Build') {
             steps {
                 dir('Mobile_Railway_Workspace') {
-                    withMaven(mavenSettingsConfig: '3e5dd040-52ae-4a57-8172-28911c31cf60') {
-                        sh 'mvn -B -ntp clean install -DskipTests'
-                    }
+                    sh 'mvn -B -ntp clean install -DskipTests'
                 }
             }
         }

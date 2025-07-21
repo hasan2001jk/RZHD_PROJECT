@@ -8,7 +8,7 @@ pipeline {
             steps {
                 dir('Mobile_Railway_Workspace') {
                     sleep(100)
-                    withMaven(mavenSettingsConfig: '44b56b84-8993-4ecb-a9ff-33b6665677df') {
+                    withMaven(mavenSettingsConfig: '6cf9dc91-fe10-49a4-829e-e28b2cbf9e3a') {
                         sh 'mvn -B -ntp checkstyle:check || true' // Continue even if Checkstyle fails
                     }
                 }
@@ -22,7 +22,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 dir('Mobile_Railway_Workspace') {
-                    withMaven(mavenSettingsConfig: '44b56b84-8993-4ecb-a9ff-33b6665677df') {
+                    withMaven(mavenSettingsConfig: '6cf9dc91-fe10-49a4-829e-e28b2cbf9e3a') {
                         sh 'mvn -B -ntp test'
                     }
                 }
@@ -31,7 +31,7 @@ pipeline {
         stage('Build') {
             steps {
                 dir('Mobile_Railway_Workspace') {
-                    withMaven(mavenSettingsConfig: '44b56b84-8993-4ecb-a9ff-33b6665677df') {
+                    withMaven(mavenSettingsConfig: '6cf9dc91-fe10-49a4-829e-e28b2cbf9e3a') {
                         sh 'mvn -B -ntp clean install -DskipTests'
                     }
                 }
